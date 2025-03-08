@@ -14,7 +14,7 @@
 		"group:external_users_#3": [
 			"example_3_@example.com",
 			"example_4_@example.com",
-		]
+		],
 	},
 	"acls": [
 		// Allow external_users_#1 group access Jellyfin.
@@ -24,32 +24,32 @@
 			"dst":    ["*:8096"],
 		},
 
-		// Allow "external_users_#2" group access Calibre_Reader
+		// Allow "external_users_#2" group access Calibre_Reader.
 		{
 			"action": "accept",
 			"src":    ["group:external_users_#2"],
 			"dst":    ["*:8124"],
 		},
 
-		// Allow "external_users_#3" group access RustDesk Verification Server
+		// Allow "external_users_#3" group access RustDesk_Direct_IP.
 		{
 			"action": "accept",
 			"src":    ["group:external_users_#3"],
-			"dst":    ["*:21114-21118"],
+			"dst":    ["*:21115-21116"],
 		},
 
-		// Allow "tailscale_friend1@example.com" user access to Calibre_Managment and Immich
+		// Allow "tailscale_friend1@example.com" user access to Calibre_Server_Manager and Immich.
 		{
 			"action": "accept",
 			"src":    ["tailscale_friend1@example.com"],
 			"dst":    ["*:8123", "*:2283"],
 		},
 
-		// Allow example@example.com access to Flame, qBittorrent, Calibre_Server_Manager, Firefox_webtop and RustDesk_server.
+		// Allow example@example.com access to Flame, qBittorrent, Calibre_Server_Manager, Calibre_Reader, Firefox_webtop, RustDesk_Direct_IP, RustDesk_Relay & RustDesk_Web.
 		{
 			"action": "accept",
 			"src":    ["group:external_users_#2"],
-			"dst":    ["*:5005", "*:8080", "*:8123", "*:6901", "*:21114-21118"]
+			"dst":    ["*:5005", "*:8080", "*:8123", "*:8124", "*:3000", "*:21115-21116", "*:21117", "*:21118"],
 		},
 
 		// Allow the owner full unrestricted access.
@@ -57,12 +57,12 @@
 			"action": "accept",
 			"src":    ["tailscale_account_host@example.com"],
 			"dst":    ["*:*"]
-		}
+		},
 	],
 	"nodeAttrs": [
 		{
 			"target": ["autogroup:member"],
-			"attr":   ["funnel"]
-		}
-	]
+			"attr":   ["funnel"],
+		},
+	],
 }

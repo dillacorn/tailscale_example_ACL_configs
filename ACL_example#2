@@ -6,7 +6,7 @@
 			"tailscale_friend3@example.com",
 			"tailscale_friend@privaterelay.appleid.com",
 			"example@example.com",
-		]
+		],
 	},
 	"acls": [
 		// Allow external users to access Jellyfin.
@@ -23,11 +23,11 @@
 			"dst":    ["*:8123"],
 		},
 		
-		// Allow example@example.com access to Flame, qBittorrent, Calibre_Managment, Calibre_Reader, Firefox_webtop and RustDesk_server.
+		// Allow example@example.com access to Flame, qBittorrent, Calibre_Server_Manager, Calibre_Reader, Firefox_webtop and RustDesk_Direct_IP.
 		{
 			"action": "accept",
 			"src":    ["example@example.com"],
-			"dst":    ["*:5005", "*:8080", "*:8124", "*:8123", "*:6901", "*:21114-21118"],
+			"dst":    ["*:5005", "*:8080", "*:8123", "*:8124", "*:3000", "*:21114-21116"],
 		},
 
 		// Allow the owner full unrestricted access.
@@ -35,7 +35,7 @@
 			"action": "accept",
 			"src":    ["tailscale_account_host@example.com"],
 			"dst":    ["*:*"]
-		}
+		},
 	],
 	"nodeAttrs": [
 		{
