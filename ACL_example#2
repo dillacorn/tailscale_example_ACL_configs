@@ -23,11 +23,11 @@
 			"dst":    ["*:8123"],
 		},
 		
-		// Allow example@example.com access to Flame, qBittorrent, Calibre_Server_Manager, Calibre_Reader, Firefox_webtop and RustDesk_Direct_IP.
+		// Allow example@example.com access to Flame, transmission, Calibre_Server_Manager, Calibre_Reader, Firefox_webtop and RustDesk_Direct_IP.
 		{
 			"action": "accept",
 			"src":    ["example@example.com"],
-			"dst":    ["*:5005", "*:8080", "*:8123", "*:8124", "*:3000", "*:21114-21116"],
+			"dst":    ["*:5005", "*:9091", "*:8123", "*:8124", "*:3000", "*:21114-21116"],
 		},
 
 		// Allow the owner full unrestricted access.
