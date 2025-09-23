@@ -1,0 +1,126 @@
+{
+	"groups": {
+		"group:external_users_#1": [
+			"tailscale_example1@gmail.com",
+			"tailscale_example2@gmail.com",
+			"tailscale_example3@gmail.com",
+			"tailscale_example4@gmail.com",
+			"numbers@privaterelay.appleid.com",
+			"tailscale_example5@name.net",
+			"tailscale_example6@gmail.com",
+			"tailscale_example7@gmail.com",
+		],
+		"group:external_users_#2": [
+			"tailscale_example1@gmail.com",
+			"blah@name.com",
+			"tailscale_example8@gmail.com",
+			"tailscale_example5@name.net",
+			"numbers@privaterelay.appleid.com",
+		],
+		"group:external_users_#3": [
+			"numbers@privaterelay.appleid.com",
+		],
+		"group:external_users_#4": [
+			"tailscale_example1@gmail.com",
+			"tailscale_example2@gmail.com",
+			"tailscale_example3@gmail.com",
+			"numbers@privaterelay.appleid.com",
+		],
+	},
+	"acls": [
+		// Allow "external_users_#1" group access to Self-Hosted Applications.
+		{
+			"action": "accept",
+			"src":    ["group:external_users_#1"],
+			"dst": [
+				"*:5005",
+				"*:8124",
+				"*:3670",
+				"*:8096",
+				"*:5055",
+				"*:1930",
+				"*:443",
+				"*:3478",
+				"*:49160-49200",
+				"*:64738",
+				"*:4838",
+			],
+		},
+
+		// Allow "external_users_#2" group access to my RustDesk Verification Server.
+		{
+			"action": "accept",
+			"src":    ["group:external_users_#2"],
+			"dst":    ["*:21115-21118"],
+		},
+
+		// Allow "external_users_#3" group access to my ownserver stream.
+		{
+			"action": "accept",
+			"src":    ["group:external_users_#3"],
+			"dst":    ["*:1935"],
+		},
+
+		// Allow "external_users_#4" group access to my minecraft server.
+		{
+			"action": "accept",
+			"src":    ["group:external_users_#4"],
+			"dst":    ["*:25565"],
+		},
+
+		// Allow **blank** access to my vaultwarden server.
+		{
+			"action": "accept",
+			"src":    ["tailscale_example5@name.net"],
+			"dst":    ["*:8901"],
+		},
+
+		// Allow **blank** access to Calibre_Management, Immich, Hoarder, changedetection, and webtop.
+		{
+			"action": "accept",
+			"src":    ["tailscale_example1@gmail.com"],
+			"dst": [
+				"*:8123",
+				"*:2283",
+				"*:5010",
+				"*:5020",
+				"*:25565",
+				"*:2021",
+				"*:7005",
+				"*:3051",
+			],
+		},
+
+		// Allow **blank** access to self-hosted applications.
+		{
+			"action": "accept",
+			"src":    ["tailscale_example2@gmail.comm"],
+			"dst": [
+				"*:5005",
+				"*:9091",
+				"*:6901",
+				"*:5010",
+				"*:5015",
+				"*:5020",
+				"*:3670",
+				"*:8124",
+				"*:8096",
+				"*:5055",
+				"*:1930",
+				"*:2021",
+				"*:7005",
+				"*:3051",
+				"*:3052",
+			],
+		},
+
+		// Allow the owner full unrestricted access.
+		{"action": "accept", "src": ["blank@gmail.com"], "dst": ["*:*"]},
+	],
+	"nodeAttrs": [
+		{
+			"target": ["autogroup:member"],
+			"attr":   ["funnel"],
+		},
+	],
+}
