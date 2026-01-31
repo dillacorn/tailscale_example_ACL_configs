@@ -1,6 +1,6 @@
 {
 	"groups": {
-		"group:external_users_#1": [
+		"group:external_users_1": [
 			"tailscale_friend1@example.com",
 			"tailscale_friend2@example.com",
 			"tailscale_friend3@example.com",
@@ -12,7 +12,7 @@
 		// Allow external users to access Jellyfin.
 		{
 			"action": "accept",
-			"src":    ["group:external_users_#1"],
+			"src":    ["group:external_users_1"],
 			"dst":    ["*:8096"],
 		},
 

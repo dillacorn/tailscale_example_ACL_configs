@@ -1,6 +1,6 @@
 {
 	"groups": {
-		"group:external_users_#1": [
+		"group:external_users_1": [
 			"tailscale_example1@gmail.com",
 			"tailscale_example2@gmail.com",
 			"tailscale_example3@gmail.com",
@@ -10,17 +10,17 @@
 			"tailscale_example6@gmail.com",
 			"tailscale_example7@gmail.com",
 		],
-		"group:external_users_#2": [
+		"group:external_users_2": [
 			"tailscale_example1@gmail.com",
 			"blah@name.com",
 			"tailscale_example8@gmail.com",
 			"tailscale_example5@name.net",
 			"numbers@privaterelay.appleid.com",
 		],
-		"group:external_users_#3": [
+		"group:external_users_3": [
 			"numbers@privaterelay.appleid.com",
 		],
-		"group:external_users_#4": [
+		"group:external_users_4": [
 			"tailscale_example1@gmail.com",
 			"tailscale_example2@gmail.com",
 			"tailscale_example3@gmail.com",
@@ -28,10 +28,10 @@
 		],
 	},
 	"acls": [
-		// Allow "external_users_#1" group access to Self-Hosted Applications.
+		// Allow "external_users_1" group access to Self-Hosted Applications.
 		{
 			"action": "accept",
-			"src":    ["group:external_users_#1"],
+			"src":    ["group:external_users_1"],
 			"dst": [
 				"*:5005",
 				"*:8124",
@@ -47,24 +47,24 @@
 			],
 		},
 
-		// Allow "external_users_#2" group access to my RustDesk Verification Server.
+		// Allow "external_users_2" group access to my RustDesk Verification Server.
 		{
 			"action": "accept",
-			"src":    ["group:external_users_#2"],
+			"src":    ["group:external_users_2"],
 			"dst":    ["*:21115-21118"],
 		},
 
-		// Allow "external_users_#3" group access to my ownserver stream.
+		// Allow "external_users_3" group access to my ownserver stream.
 		{
 			"action": "accept",
-			"src":    ["group:external_users_#3"],
+			"src":    ["group:external_users_3"],
 			"dst":    ["*:1935"],
 		},
 
-		// Allow "external_users_#4" group access to my minecraft server.
+		// Allow "external_users_4" group access to my minecraft server.
 		{
 			"action": "accept",
-			"src":    ["group:external_users_#4"],
+			"src":    ["group:external_users_4"],
 			"dst":    ["*:25565"],
 		},
 
@@ -94,7 +94,7 @@
 		// Allow **blank** access to self-hosted applications.
 		{
 			"action": "accept",
-			"src":    ["tailscale_example2@gmail.comm"],
+			"src":    ["tailscale_example2@gmail.com"],
 			"dst": [
 				"*:5005",
 				"*:9091",
